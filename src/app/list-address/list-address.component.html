@@ -1,0 +1,44 @@
+<div class="content-wrapper">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-lg-12">
+              <div class="card">
+                <div class="card-header">
+                    <h5 class="form-header text-uppercase">
+                    <i class="zmdi zmdi-view-list"></i>
+                     Address List  
+                  </h5>
+                  <button [routerLink]="['/add-address']" type="submit" class="btn btn-success">
+                    <i class="zmdi zmdi-upload"></i> Add Address
+                  </button>
+                  <form class="search-bar pull-right">                        
+                         <a href="javascript:void();"></a>
+                      </form>
+                </div>
+                <div class="card-body">
+                  <div class="table-responsive">
+                  <table id="example" class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <th>S.N</th>
+                            <th>Address Type</th>                            
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let a of addresses let i = index">
+                            <td class="hidden">{{i + 1}}</td>                            
+                            <td>{{a.ADDRESS_TYPE}}</td>
+                            <td><a (click)="updateBrand(brand)"  class="btn btn-sm btn-primary" data-toggle="tooltip" data-placement="top" title="Edit" style="margin: 5px;"><i class="zmdi zmdi-edit"></i></a>
+                              <a (click)="deleteBrand(brand)" class="btn btn-sm btn-danger" data-toggle="tooltip" data-placement="top" title="Delete"><i class="zmdi zmdi-delete" ></i></a>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                </div>
+                </div>
+              </div>
+            </div>
+          </div><!-- End Row-->
+    </div>
+  </div>
+  

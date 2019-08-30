@@ -1,0 +1,51 @@
+<div class="content-wrapper">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-lg-12">
+              <div class="card">
+                <div class="card-header">
+                  <h5 class="form-header text-uppercase">
+                    <i class="zmdi zmdi-view-list"></i>
+                     Users List
+                  </h5>
+                  <button [routerLink]="['/add-user']" type="submit" class="btn btn-success">
+                    <i class="zmdi zmdi-upload"></i> Add User
+                  </button>
+                  <form class="search-bar pull-right">
+                      <input class="form-control" type="text" name="search"  (input)='Search()' [(ngModel)]="USER_CONTACT"   [(ngModel)]="USER_NAME" autocomplete="off"   placeholder="Search By User Name">
+                       <a href="javascript:void();"></a>
+                    </form>
+                </div>
+                <div class="card-body">
+                  <div class="table-responsive">
+                  <table id="example" class="table table-bordered">
+                    <thead>
+                      <tr>
+                        <th class="hidden">S.N</th>
+                        <th>Name</th>
+                        <th>Contact</th>
+                        <th>Email</th>
+                        <th>User Type</th>
+                        <th>Action</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr *ngFor="let user of users let i = index">
+                          <td class="hidden">{{ i + 1}}</td>
+                          <td>{{user.USER_NAME || "N/A"}}</td>
+                          <td>{{user.USER_CONTACT || "N/A"}}</td>
+                          <td>{{user.USER_EMAIL || "N/A"}}</td>
+                          <td>{{user.USER_TYPE_NAME || "N/A"}}</td>
+                          <td><a (click)="updateUser(user)"  class="btn btn-sm btn-primary" style="margin: 5px;"><i class="zmdi zmdi-edit" data-toggle="tooltip" data-placement="top" title="Edit"  ></i></a>
+                                <a (click)="deleteUser(user)"  class="btn btn-sm btn-danger"><i class="zmdi zmdi-delete" data-toggle="tooltip" data-placement="top" title="Delete"></i></a>
+                          </td>
+                        </tr>
+                    </tbody>
+                </table>
+                </div>
+                </div>
+              </div>
+            </div>
+          </div>
+    </div>
+  </div>

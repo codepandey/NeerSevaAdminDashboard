@@ -1,0 +1,49 @@
+<div class="content-wrapper">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-lg-12">
+        <div class="card">
+          <div class="card-body">
+            <form [formGroup]="addForm" (ngSubmit)="onSubmit()">
+              <h4 class="form-header text-uppercase">
+                <i class="zmdi zmdi-view-list"></i>
+                Add Brand
+              </h4>
+              <div class="form-group row">
+                <label for="BRAND_NAME" class="col-sm-2 col-form-label"
+                  >Brand Name</label
+                >
+                <div class="col-sm-10">
+                  <input
+                    formControlName="BRAND_NAME"
+                    placeholder="Brand Name"
+                    type="text"
+                    class="form-control"
+                    id="BRAND_NAME"
+                    name="BRAND_NAME"
+                    required
+                    [ngClass]="{
+                      'is-invalid': submitted && f.BRAND_NAME.errors
+                    }"
+                  />
+                  <div *ngIf="submitted && f.BRAND_NAME.errors">
+                    <div *ngIf="f.BRAND_NAME.errors.required">
+                      BrandName is required
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="form-footer">
+                <button type="submit" class="btn btn-success">
+                  <i class="zmdi zmdi-upload"></i> Add
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!--End Row-->
+  </div>
+</div>
+<script src="assets/plugins/jquery-validation/js/jquery.validate.min.js"></script>

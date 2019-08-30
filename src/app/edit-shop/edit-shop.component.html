@@ -1,0 +1,47 @@
+<div class="content-wrapper">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-lg-12">
+              <div class="card">
+                <div class="card-body">
+                  <form [formGroup]="editForm" (ngSubmit)="onSubmit()">
+                    <h4 class="form-header text-uppercase">
+                      <i class="zmdi zmdi-view-list"></i>
+                       Edit Shop
+                    </h4>
+                    <div class="form-group row">
+                        <label for="SHOP_NAME" class="col-sm-2 col-form-label">Shop Name</label>
+                        <div class="col-sm-10">
+                          <input formControlName="SHOP_NAME" type="text" class="form-control" id="SHOP_NAME" name="SHOP_NAME"  required [ngClass]="{ 'is-invalid': submitted && f.SHOP_NAME.errors }">
+                          <div *ngIf="submitted && f.SHOP_NAME.errors">
+                              <div *ngIf="f.SHOP_NAME.errors.required">Shop Name is required</div>
+                            </div>
+                        </div>
+                      </div>
+                      <div class="form-group row">
+                          <label for="SHOP_TYPE" class="col-sm-2 col-form-label">Shop Type</label>
+                          <div class="col-sm-10">
+                            <input formControlName="SHOP_TYPE" type="text" class="form-control" id="SHOP_TYPE" name="SHOP_TYPE"  required [ngClass]="{ 'is-invalid': submitted && f.SHOP_TYPE.errors }">
+                            <div *ngIf="submitted && f.SHOP_TYPE.errors">
+                                <div *ngIf="f.SHOP_TYPE.errors.required">Shop type is required</div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="SHOP_BRANCH" class="col-sm-2 col-form-label">Shop Branch</label>
+                            <div class="col-sm-10">
+                              <input formControlName="SHOP_BRANCH" type="text" class="form-control" id="SHOP_BRANCH" name="SHOP_BRANCH"  required [ngClass]="{ 'is-invalid': submitted && f.SHOP_BRANCH.errors }">
+                              <div *ngIf="submitted && f.SHOP_BRANCH.errors">
+                                  <div *ngIf="f.SHOP_BRANCH.errors.required">Shop Branch is required</div>
+                              </div>
+                            </div>
+                          </div>
+                        <button type="submit" class="btn btn-success"><i class="zmdi zmdi-upload"></i> Update</button>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div><!--End Row-->
+    </div>
+</div>
+<!-- <script src="assets/plugins/jquery-validation/js/jquery.validate.min.js"></script> -->
