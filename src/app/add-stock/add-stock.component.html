@@ -16,12 +16,13 @@
                 <div class="col-sm-10">
                   <select
                     class="form-control"
-                    formControlName="BRAND_ID"
-                    id="BRAND_ID"
+                    formControlName="BRAND_NAME"
+                    id="BRAND_NAME"
+                    (change)="onChangeBrand($event.target.value)"
                   >
-                    <option value=""  disabled>Select Brand</option>
-                    <option *ngFor="let b of brands">
-                      {{ b.BRAND_NAME }}
+                    <option value="" disabled>Select Brand</option>
+                    <option *ngFor="let brand of brands" [value]="brand.BRAND_NAME">
+                      {{ brand.BRAND_NAME }}
                     </option>
                   </select>
                 </div>
@@ -37,8 +38,8 @@
                     id="ITEM_ID"
                   >
                     <option value="" disabled>Select Item</option>
-                    <option *ngFor="let i of items">
-                      {{ i.ITEM_NAME }}
+                    <option *ngFor="let item of items" [value]=item.ITEM_ID>
+                      {{ item.ITEM_NAME }}
                     </option>
                   </select>
                 </div>

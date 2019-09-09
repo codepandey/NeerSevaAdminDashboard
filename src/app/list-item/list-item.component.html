@@ -45,7 +45,7 @@
                       <td>{{item.ITEM_DISCOUNT}}</td>
                       <td>{{item.ITEM_TYPE || 'N/A'}}</td>
                       <td>{{item.ITEM_CAPACITY || 'N/A'}}</td>
-                      <td>{{item.ITEM_BRAND}}</td>
+                      <td>{{item.BRAND_NAME}}</td>
                       <td>{{item.ITEM_TAX || 'N/A'}}</td>
                       <td><a (click)="updateItem(item)"  class="btn btn-sm btn-primary" data-toggle="tooltip" data-placement="top" title="Edit Item" style="margin: 5px;"><i class="zmdi zmdi-edit"></i></a>
                         <a (click)="deleteItem(item)" class="btn btn-sm btn-danger" data-toggle="tooltip" data-placement="top" title="Delete Item"><i class="zmdi zmdi-delete"></i></a>

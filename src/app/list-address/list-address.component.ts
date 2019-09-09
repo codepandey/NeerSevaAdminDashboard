@@ -12,7 +12,7 @@ import { AddressService } from '../service/address.service';
 export class ListAddressComponent implements OnInit {
 
   addresses;
-  
+
   constructor(private router: Router, private addressService: AddressService) { }
 
 
@@ -23,26 +23,25 @@ export class ListAddressComponent implements OnInit {
   getAllAddresses(): void {
     this.addressService.getAllAddresses().subscribe(data => {
       this.addresses = data;
-      console.log(this.addresses);
     });
   }
 
-  // addShop(): void {
-  //   this.router.navigate(['add-shop']);
-  // }
+  addAddress(): void {
+    this.router.navigate(['add-address']);
+  }
 
-  // deleteShop(shop: Shop) {
-  //   this.shopService.deleteShop(shop.SHOP_ID)
-  //   .subscribe(data => {
-  //     this.getAllShops();
-  //   });
-  // }
+  deleteAddress(address: Address) {
+    this.addressService.deleteAddress(address.ADDRESS_ID)
+    .subscribe(data => {
+      this.getAllAddresses();
+    });
+  }
 
-  // updateShop(shop: Shop) {
-  //   localStorage.removeItem('editShopId');
-  //   localStorage.setItem('editShopId', shop.SHOP_ID);
-  //   this.router.navigate(['edit-shop']);
-  // }
+  updateAddress(address: Address) {
+    localStorage.removeItem('editShopId');
+    localStorage.setItem('editShopId', address.ADDRESS_ID);
+    this.router.navigate(['edit-shop']);
+  }
 
   // Search() {
   //   if (this.SHOP_NAME !==  '') {
@@ -52,7 +51,6 @@ export class ListAddressComponent implements OnInit {
   //   this.shops = this.shops.filter(res => {
   //     return res.SHOP_NAME.toLowerCase().match(this.SHOP_NAME.toLowerCase());
   //   });
-
   // }
 
 

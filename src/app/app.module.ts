@@ -53,6 +53,7 @@ import { ListAddressComponent } from './list-address/list-address.component';
 import { AddAddressComponent } from './add-address/add-address.component';
 import { EditAddressComponent } from './edit-address/edit-address.component';
 import { AddressService } from './service/address.service';
+import { AddBrandimageComponent } from './add-brandimage/add-brandimage.component';
 
 
 
@@ -97,7 +98,8 @@ import { AddressService } from './service/address.service';
     EditShopComponent,
     ListAddressComponent,
     AddAddressComponent,
-    EditAddressComponent
+    EditAddressComponent,
+    AddBrandimageComponent
   ],
   imports: [
     BrowserModule,

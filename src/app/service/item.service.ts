@@ -26,6 +26,11 @@ export class ItemService {
     return this.http.get<Item>(this.baseUrl + 'items' + '/' + ITEM_ID);
   }
 
+  getItemsByBrandName(BRAND_NAME: string)  {
+    return this.http.get<Item>(this.baseUrl + 'itemsByBrandName' + '/' + BRAND_NAME);
+  }
+
+
 
   addItem(item: Item) {
     return this.http.post(this.baseUrl + 'items', item);

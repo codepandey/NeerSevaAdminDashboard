@@ -40,7 +40,7 @@ export class AddItemComponent implements OnInit {
         ITEM_TYPE: ['', Validators.required],
         ITEM_DESCRIPTION: ['', Validators.required],
         ITEM_CAPACITY: ['', Validators.required],
-        ITEM_BRAND: ['', Validators.required],
+        BRAND_NAME: ['', Validators.required],
         ITEM_TAX: ['', Validators.required]
     });
     this.brandService.getAllBrands()

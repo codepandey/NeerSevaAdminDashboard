@@ -12,10 +12,19 @@ export class HomeComponent implements OnInit {
   constructor(private userService: UserService) { }
 
   ngOnInit() {
+    this.getUserCount();
+    this.getCustomerCount();
+  }
+
+
+  getUserCount()  {
     this.userService.getUserCount()
     .subscribe(data => {
       this.usercount = data;
     });
+  }
+
+  getCustomerCount() {
     this.userService.getUserCustomerTypeCount()
     .subscribe(data => {
       this.userAsCustomer = data;

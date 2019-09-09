@@ -6,12 +6,12 @@
                 <div class="card-header">
                     <h5 class="form-header text-uppercase">
                     <i class="zmdi zmdi-view-list"></i>
-                     Address List  
+                     Address List
                   </h5>
                   <button [routerLink]="['/add-address']" type="submit" class="btn btn-success">
                     <i class="zmdi zmdi-upload"></i> Add Address
                   </button>
-                  <form class="search-bar pull-right">                        
+                  <form class="search-bar pull-right">
                          <a href="javascript:void();"></a>
                       </form>
                 </div>
@@ -21,15 +21,32 @@
                     <thead>
                         <tr>
                             <th>S.N</th>
-                            <th>Address Type</th>                            
+                            <th>Address Type1</th>
+                            <th>Address Type2</th>
+                            <th>Address Type3</th>
+                            <th>Address Type4</th>
+                            <th>PIN</th>
+                            <th>CITY</th>
+                            <th>STATE</th>
+                            <th>COUNTRY</th>
+                            <th>Address Type</th>
+                            <th>Action</th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr *ngFor="let a of addresses let i = index">
-                            <td class="hidden">{{i + 1}}</td>                            
-                            <td>{{a.ADDRESS_TYPE}}</td>
-                            <td><a (click)="updateBrand(brand)"  class="btn btn-sm btn-primary" data-toggle="tooltip" data-placement="top" title="Edit" style="margin: 5px;"><i class="zmdi zmdi-edit"></i></a>
-                              <a (click)="deleteBrand(brand)" class="btn btn-sm btn-danger" data-toggle="tooltip" data-placement="top" title="Delete"><i class="zmdi zmdi-delete" ></i></a>
+                            <td class="hidden">{{i + 1}}</td>
+                            <td>{{a.ADDRESS_TYPE || 'N/A'}}</td>
+                            <td>{{a.ADDR_LINE1 || 'N/A'}}</td>
+                            <td>{{a.ADDR_LINE2 || 'N/A'}}</td>
+                            <td>{{a.ADDR_LINE3 || 'N/A'}}</td>
+                            <td>{{a.ADDR_LINE4 || 'N/A'}}</td>
+                            <td>{{a.PIN || 'N/A'}}</td>
+                            <td>{{a.CITY || 'N/A'}}</td>
+                            <td>{{a.STATE || 'N/A'}}</td>
+                            <td>{{a.COUNTRY || 'N/A'}}</td>
+                            <td><a (click)="updateAddress(a)"  class="btn btn-sm btn-primary" data-toggle="tooltip" data-placement="top" title="Edit" style="margin: 5px;"><i class="zmdi zmdi-edit"></i></a>
+                              <a (click)="deleteAddress(a)" class="btn btn-sm btn-danger" data-toggle="tooltip" data-placement="top" title="Delete"><i class="zmdi zmdi-delete" ></i></a>
                             </td>
                         </tr>
                     </tbody>
@@ -41,4 +58,3 @@
           </div><!-- End Row-->
     </div>
   </div>
-  

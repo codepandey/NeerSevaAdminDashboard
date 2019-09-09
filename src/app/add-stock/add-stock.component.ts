@@ -13,10 +13,12 @@ import { ItemService } from '../service/item.service';
   styleUrls: ['./add-stock.component.scss']
 })
 export class AddStockComponent implements OnInit {
-  items;
-  brands;
+  items: {};
+  brands: {};
+  BRAND_NAME;
   addForm: FormGroup;
   submitted = false;
+
   constructor(
     private formBuilder: FormBuilder,
     private router: Router,
@@ -31,27 +33,37 @@ export class AddStockComponent implements OnInit {
       STOCK_QUANTITY: ['', Validators.required],
       STOCK_ITEM_ID: ['', Validators.required],
       BRAND_ID: ['', Validators.required],
-      ITEM_ID: ['', Validators.required]
-
+      ITEM_ID: ['', Validators.required],
+      BRAND_NAME: ['', Validators.required]
     });
+    this.getAllBrand();
+  }
+
+
+
+
+  onChangeBrand(BRAND_NAME: string) {
+    if (BRAND_NAME) {
+      this.itemService.getItemsByBrandName(BRAND_NAME)
+      .subscribe(
+        data => {
+          this.items = data;
+        }
+      );
+    } else {
+      this.items = null;
+    }
+  }
+
+  getAllBrand() {
     this.brandService.getAllBrands()
-      .subscribe(data => {
-        this.brands = data;
-      });
-    this.itemService.getAllItems()
-      .subscribe(data => {
-        this.items = data;
-      });
-
-
-    // this.itemService.getItemById()
-    // .subscribe(data => {
-    //   this.items = data;
-    // });
-
+    .subscribe(data => {
+      this.brands = data;
+    });
   }
 
   onSubmit() {
+    console.log(this.addForm.value);
     this.submitted = true;
     if (this.addForm.valid) {
       this.stockService.addStock(this.addForm.value)

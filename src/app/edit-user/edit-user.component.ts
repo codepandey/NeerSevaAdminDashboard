@@ -10,6 +10,7 @@ import {first} from 'rxjs/operators';
 @Component({
   selector: 'app-edit-user',
   templateUrl: './edit-user.component.html',
+  
   styleUrls: ['./edit-user.component.scss']
 })
 export class EditUserComponent implements OnInit {
@@ -31,15 +32,16 @@ export class EditUserComponent implements OnInit {
       USER_NAME: ['', Validators.required],
       USER_CONTACT: ['', Validators.required],
       USER_EMAIL: ['', Validators.required],
+      USER_TYPE_NAME: ['', Validators.required],
       USER_ADDRESS_ID: ['', Validators.required],
       USER_TYPE_ID: ['', Validators.required],
       USER_IS_DELETED: ['', Validators.required],
       USER_IS_ACTIVE: ['', Validators.required],
-      USER_DATE_CREATED: ['', Validators.required],
-      USER_TYPE_NAME: ['', Validators.required]
+      USER_DATE_CREATED: ['', Validators.required]
     });
     this.userService.getUserById(+USER_ID)
     .subscribe(data => {
+      console.log(data.USER_TYPE_ID);
       this.editForm.setValue(data[0]);
     });
     this.userService.getAllUserTypes()
@@ -51,10 +53,12 @@ export class EditUserComponent implements OnInit {
   get f() { return this.editForm.controls; }
 
   onSubmit() {
+    console.log(this.editForm.value);
     this.userService.updateUser(this.editForm.value)
       .pipe(first())
       .subscribe(
         data => {
+          console.log(data);
           this.router.navigate(['list-user']);
         },
         error => {

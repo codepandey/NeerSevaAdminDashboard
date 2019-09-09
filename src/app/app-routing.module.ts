@@ -35,6 +35,7 @@ import { ListShopComponent } from './list-shop/list-shop.component';
 import { ListAddressComponent } from './list-address/list-address.component';
 import { EditAddressComponent } from './edit-address/edit-address.component';
 import { AddAddressComponent } from './add-address/add-address.component';
+import { AddBrandimageComponent } from './add-brandimage/add-brandimage.component';
 
 const routes: Routes = [
   {
@@ -56,6 +57,10 @@ const routes: Routes = [
   {
     path: 'add-shop',
     component: AddShopComponent
+  },
+  {
+    path: 'add-brandimage',
+    component: AddBrandimageComponent
   },
   {
     path: 'edit-shop',

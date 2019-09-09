@@ -43,12 +43,12 @@ export class EditItemComponent implements OnInit {
         ITEM_TYPE: ['', Validators.required],
         ITEM_DESCRIPTION: ['', Validators.required],
         ITEM_CAPACITY: ['', Validators.required],
-        ITEM_BRAND: ['', Validators.required],
+        BRAND_NAME: ['', Validators.required],
         ITEM_IMAGE_ID: ['', Validators.required],
         ITEM_CREATED_BY_USER: ['', Validators.required],
         ITEM_IS_DELETED: ['', Validators.required],
         ITEM_DATE_CREATED: ['', Validators.required],
-        ITEM_TAX: ['', Validators.required]
+        ITEM_TAX: ['', Validators.required],
       });
       this.itemService.getItemById(+ITEM_ID)
       .subscribe(data => {

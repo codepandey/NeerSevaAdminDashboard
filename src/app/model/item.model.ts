@@ -10,7 +10,7 @@ export class Item {
   ITEM_TYPE: string;
   ITEM_DESCRIPTION: string;
   ITEM_CAPACITY: string;
-  ITEM_BRAND: string;
+  BRAND_NAME: string;
   ITEM_IMAGE_ID: string;
   ITEM_DATE_CREATED: string;
   ITEM_CREATED_BY_USER: string;

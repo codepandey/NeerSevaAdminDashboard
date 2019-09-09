@@ -2,7 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { UserService } from '../service/user.service';
 import { User } from '../model/user.model';
 import { Router } from '@angular/router';
-
+import { UserView } from '../model/userview.model';
+ 
 @Component({
   selector: 'list-user',
   templateUrl: './list-user.component.html',
@@ -12,6 +13,7 @@ export class ListUserComponent implements OnInit {
   users: User[] = [];
   USER_NAME: string;
   user;
+  userview: UserView[] = [];
   constructor(private router: Router, private userService: UserService) {  }
 
   ngOnInit() {
@@ -19,10 +21,18 @@ export class ListUserComponent implements OnInit {
   }
 
   getAllUsers(): void {
-    this.userService.getAllUsers().subscribe(data => {
-      this.users = data;
+    this.userService.getAllUsers()
+      .subscribe(data => {
+        this.users = data;
     });
   }
+
+  // getUserView() {
+  //   this.userService.getAllUserView()
+  //   .subscribe(data = {
+  //     console.log
+  //   });
+  // }
 
   addUser(): void {
     this.router.navigate(['add-user']);
@@ -35,7 +45,7 @@ export class ListUserComponent implements OnInit {
     });
   }
 
-  updateUser(user: User){
+  updateUser(user: User) {
     localStorage.removeItem('editUserId');
     localStorage.setItem('editUserId', user.USER_ID);
     this.router.navigate(['edit-user']);

@@ -1,6 +1,7 @@
 import {Injectable} from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Address } from '../model/address.model';
+import { Observable } from 'rxjs';
 
 
 const httpOptions = {
@@ -26,7 +27,7 @@ export class AddressService {
   }
 
 
-  addAddres(address: Address) {
+  addAddress(address: Address) {
     return this.http.post(this.baseUrl, address);
   }
 
